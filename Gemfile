@@ -16,7 +16,9 @@ gem "solid_queue"
 gem "solid_cable"
 gem "bootsnap", require: false
 gem "thruster", require: false
-gem "raix-rails", "~> 0.3.1"
+gem "raix"
+gem "open_router"
+gem "faraday-retry", require: "faraday/retry"
 gem "image_processing", "~> 1.2"
 
 group :development, :test do
