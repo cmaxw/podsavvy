@@ -1,0 +1,17 @@
+<% content_for :chat_input do %>
+  <%= turbo_frame_tag "new_message" do %>
+    <%= form_with model: Message.new, data: { turbo: true } do |f| %>
+      <div class="max-w-3xl mx-auto flex gap-2">
+        <%= f.text_field :content, 
+              placeholder: "Type your message...", 
+              class: "flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        <%= f.submit "Send", 
+              class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50" %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div id="messages" class="space-y-4 max-w-3xl mx-auto">
+  <%= render partial: "message", collection: @messages || [] %>
+</div>

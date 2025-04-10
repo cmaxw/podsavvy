@@ -1,0 +1,22 @@
+<!-- app/views/messages/create.turbo_stream.erb -->
+<%= turbo_stream.append "messages" do %>
+  <%= render partial: "home/message", object: @user_message %>
+<% end %>
+
+<%= turbo_stream.append "messages" do %>
+  <%= render partial: "home/message", object: @ai_message %>
+<% end %>
+
+<%= turbo_stream.replace "new_message" do %>
+  <%= turbo_frame_tag "new_message" do %>
+    <%= form_with model: Message.new, data: { turbo: true } do |f| %>
+      <div class="max-w-3xl mx-auto flex gap-2">
+        <%= f.text_field :content, 
+              placeholder: "Type your message...", 
+              class: "flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        <%= f.submit "Send", 
+              class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50" %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
