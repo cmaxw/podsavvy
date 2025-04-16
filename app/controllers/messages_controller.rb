@@ -3,8 +3,12 @@ class MessagesController < ApplicationController
     @user_message = Message.create!(message_params.merge(role: "user"))
     
     # Simulate AI response (replace with actual AI logic)
+    ai_agent = DispatcherAgent.new
+    ai_agent.transcript << {role: "user", content: @user_message.content}
+    ai_message = Commonmarker.to_html(ai_agent.chat_completion)
+
     @ai_message = Message.create!(
-      content: "This is a sample AI response to: '#{@user_message.content}'",
+      content: ai_message,
       role: "ai"
     )
 

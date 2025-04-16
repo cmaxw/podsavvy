@@ -20,6 +20,7 @@ gem "raix"
 gem "open_router"
 gem "faraday-retry", require: "faraday/retry"
 gem "image_processing", "~> 1.2"
+gem "commonmarker"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
