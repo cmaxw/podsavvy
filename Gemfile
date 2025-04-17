@@ -17,10 +17,12 @@ gem "solid_cable"
 gem "bootsnap", require: false
 gem "thruster", require: false
 gem "raix"
+gem "ruby_llm"
 gem "open_router"
 gem "faraday-retry", require: "faraday/retry"
 gem "image_processing", "~> 1.2"
 gem "commonmarker"
+gem "dotenv-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -37,4 +39,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
